@@ -36,11 +36,11 @@ def predict():
         recommended_drugs = [drug_names[i] for i in top_drug_indices if i < len(drug_names)]
         
         return recommended_drugs
-    kmeans=pkl.load(open("781670.f1/model.pkl","rb"))
-    scaler=pkl.load(open("781670.f1/scaler.pkl","rb"))
-    pca=pkl.load(open("781670.f1/pca.pkl","rb"))
-    collaborative_matrix=pkl.load(open("781670.f1/collaborative_matrix.pkl","rb"))
-    cosine_sim_matrix=pkl.load(open("781670.f1/cosine_sim_matrix.pkl","rb"))
+    kmeans=pkl.load(open("model.pkl","rb"))
+    scaler=pkl.load(open("scaler.pkl","rb"))
+    pca=pkl.load(open("pca.pkl","rb"))
+    collaborative_matrix=pkl.load(open("collaborative_matrix.pkl","rb"))
+    cosine_sim_matrix=pkl.load(open("cosine_sim_matrix.pkl","rb"))
     new_patient_data_scaled = scaler.transform(data)
     new_patient = pca.transform(new_patient_data_scaled)
     prediction = predict_drug_recommendation(new_patient)
